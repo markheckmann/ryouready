@@ -1,0 +1,32 @@
+\name{ord.tau}
+\alias{ord.tau}
+\title{Calculate Kendall's Tau statistics for ordinal data tables
+(Tau-b and Tau-c).}
+\usage{
+  ord.tau(x)
+}
+\arguments{
+  \item{x}{A table object.}
+}
+\value{
+  A named list with the three values: \item{tau.a}{Tau-a
+  satistic (for quadratic tables only)} \item{tau.b}{Tau-b
+  satistic} \item{tau.c}{Kendall-Stuart Tau-c satistic}
+}
+\description{
+  Calculate Kendall's Tau statistics for ordinal data
+  tables (Tau-b and Tau-c).
+}
+\note{
+  The code for the calculation was supplied by Marc
+  Schwartz (under GPL 2)
+}
+\examples{
+{
+ # TODO
+}
+}
+\author{
+  Marc Schwartz, Mark Heckmann
+}
+

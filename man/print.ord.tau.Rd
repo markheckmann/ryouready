@@ -1,0 +1,18 @@
+\name{print.ord.tau}
+\alias{print.ord.tau}
+\title{Print method for class ord.tau}
+\usage{
+  \method{print}{ord.tau} (x, digits = 3, ...)
+}
+\arguments{
+  \item{x}{Object to be printed.}
+
+  \item{digits}{Number of decimal places to round to.}
+
+  \item{...}{Not evaluated.}
+}
+\description{
+  Print method for class ord.tau
+}
+\keyword{internal}
+

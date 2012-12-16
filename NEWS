@@ -8,4 +8,6 @@ For a technical overview on changes see file CHANGELOG in source.
 
 Version 0.1 (opened April 7, 2012) --------------------------   
 
-	* To come
+	* Association measures for nominal and ordinal data tables: nom.lambda
+    nom.uncertainty, ord.gamma, ord.somers.d, ord.tau
+  * Dataset NGO added

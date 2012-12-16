@@ -1,0 +1,28 @@
+\name{ord.gamma}
+\alias{ord.gamma}
+\title{Calculate Goodman-Kruskal gamma for ordinal data tables.}
+\usage{
+  ord.gamma(x)
+}
+\arguments{
+  \item{x}{A table object.}
+}
+\value{
+  The gamma value.
+}
+\description{
+  Calculate Goodman-Kruskal gamma for ordinal data tables.
+}
+\note{
+  The code for the calculation was supplied by Marc
+  Schwartz (under GPL 2). Checked against SPSS results.
+}
+\examples{
+{
+ # TODO
+}
+}
+\author{
+  Marc Schwartz, Mark Heckmann
+}
+

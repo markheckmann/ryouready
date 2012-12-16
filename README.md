@@ -1,6 +1,6 @@
 # ryouready
 
-**ryouready** is an R package to accompany my R book `"R" you ready?`
+**ryouready** is an R package to accompany my forthcoming R book `"R" you ready?`
                                                   
 To install the latest package version from github you can use the `devtools` package.
     

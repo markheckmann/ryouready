@@ -1,13 +1,16 @@
 Package: ryouready
 Maintainer: Mark Heckmann <heckmann@uni-bremen.de>
 License: GPL (>= 2)
-Title: ryouready Companion to my R book
+Title: Companion to the 'R your ready?' book
 LazyData: yes
 Type: Package
 LazyLoad: yes
 Author: Mark Heckmann
-Description: Data, functions etc. from the R you ready? book
+Description: Data, functions etc. from the 'R you ready?' book
 Version: 0.1
 Date: 2012-04-05
 Collate:
     'ryouready-package.r'
+    'association_measures.r'
+    'utils.r'
+    'data-doc.R'
