@@ -14,3 +14,38 @@
 #' @keywords data
 #'
 NULL
+
+
+#### Daten für Eta Beispiele ####
+
+#' eta2 
+#'
+#' Data set for eta examples.
+#'
+#' @name eta2
+#' @docType data
+#' @keywords data
+#'
+NULL
+
+
+#### data for examples in eta coefficient ####
+
+# for demonstration of eta coefficient
+# x   interval data
+# x1  group factor
+# y   dependent variable
+#
+# set.seed(5)
+# x <- sample(10:100, 50, rep=T) / 10 
+# y <- -(x-5.5)^2 + rnorm(length(x), sd=3) 
+# range01 <- function(x){(x-min(x))/(max(x)-min(x))}
+# y <- round(range01(y) *9 + 1, 1)
+# x1 <- rep(2, length(x))
+# x1[x < 4 | x > 7] <- 1
+# d <- data.frame(x, x1, y)
+# write.table(d, "data/eta.txt", row.names=FALSE)
+# write.csv2(d, "data/eta.csv", row.names=FALSE)
+# plot(x,y)
+# plot(x1,y)
+

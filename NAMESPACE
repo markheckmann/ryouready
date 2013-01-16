@@ -1,3 +1,4 @@
+export(eta)
 export(foo)
 export(nom.lambda)
 export(nom.uncertainty)
