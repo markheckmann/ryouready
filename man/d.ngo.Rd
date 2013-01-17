@@ -1,6 +1,6 @@
 \docType{data}
-\name{ngo}
-\alias{ngo}
+\name{d.ngo}
+\alias{d.ngo}
 \title{NGO Dataset}
 \description{
   Data set used by Kähler (2008).

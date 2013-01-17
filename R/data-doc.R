@@ -6,7 +6,7 @@
 #'
 #' Data set used by Kähler (2008).
 #'
-#' @name ngo
+#' @name d.ngo
 #' @docType data
 #' @references  
 #' Kähler, W.-M. (2008). \emph{Statistische Datenanalyse: Verfahren verstehen
@@ -18,11 +18,11 @@ NULL
 
 #### Daten für Eta Beispiele ####
 
-#' eta2 
+#' Sample data set for eta function examples
 #'
 #' Data set for eta examples.
 #'
-#' @name eta2
+#' @name d.eta
 #' @docType data
 #' @keywords data
 #'

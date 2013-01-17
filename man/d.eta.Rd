@@ -1,7 +1,7 @@
 \docType{data}
-\name{eta2}
-\alias{eta2}
-\title{eta2}
+\name{d.eta}
+\alias{d.eta}
+\title{Sample data set for eta function examples}
 \description{
   Data set for eta examples.
 }

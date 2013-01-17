@@ -547,13 +547,17 @@ cochranq.test <- function(mat)
 #' @param breaks If \code{x} is interval data the \code{breaks} argument can be
 #'   specified to classify the data. \code{breaks} is passed on to the function 
 #'   \code{\link{cut}}.
+#' @param na.rm Logical. Indicating if \code{NA} values are removed.
 #' @return Eta coefficient
 #' @export
 #' @author Mark Heckmann
 #' @examples 
-#' attach(eta2)     # using eta2 dataset
+#' attach(d.eta)     # using d.eta dataset
 #' eta(x1, y)
-#'  
+#' 
+#' # removing missing data
+#' eta(c(x1, 2), c(NA, y), na.rm=T)   # NA added to y to show NA behaviour
+#'    
 #' # classify interval data x
 #' eta(x, y, breaks=c(1, 4, 7,10))
 #' # visualize classication
@@ -563,31 +567,36 @@ cochranq.test <- function(mat)
 #' # setting number of breaks for classification
 #' eta(x, y, breaks=7)   
 #'
-eta <- function(x, y, breaks=NULL, ...)
+eta <- function(x, y, breaks=NULL, na.rm=FALSE)
 {
+  if (is.factor(x))                           # convert factor to numeric in case it is a factor
+    x <- as.numeric(x)                          
   if (! (is.vector(x) & is.vector(y)) ) 
-      stop("'x' and 'v' must be vectors")
+      stop("'x' must be vectors or a factor, 'y' must be a vector", call.=FALSE)
+  if (na.rm) {
+    i <- !(is.na(x) | is.na(y))                 # listwise deletion for NAs
+    x <- x[i]
+    y <- y[i]
+  }
   if (!is.null(breaks))                       # if x is interval data, breaks can be specified
     x <- droplevels(cut(x, breaks=breaks))    # as order does not matter drop levels
-  x <- split(y, x)  
-  .eta(x, ...)
+  l <- split(y, x)  
+  .eta(l)
 }
 
 
-# x: ragged list
+# x: list with y values for each category
 # code adapted from: http://stackoverflow.com/questions/3002638/eta-eta-squared-routines-in-r
 #
-.eta <- function(x, ...) 
+.eta <- function(x) 
 {
-  y <- unlist(x)
-  mg <- sapply(x, mean, ...)        # group means
-  ng <- sapply(x, length, ...)      # group size
-  mtot <- mean(y, ...)              # total mean
-  ssb <- sum(ng * (mg - mtot) ^ 2)  # SSb
-  sst <- sum((y - mtot) ^ 2)        # SSt
+  y <- unlist(x)                    # list with values by category
+  mg <- sapply(x, mean)             # group means
+  ng <- sapply(x, length)           # group size
+  mtot <- mean(y)                   # total mean
+  ssb <- sum(ng * (mg - mtot)^2)    # SSb
+  sst <- sum((y - mtot)^2)          # SSt
   sqrt(ssb/sst)
 }
-
-
 
 

@@ -2,7 +2,7 @@
 \alias{eta}
 \title{Eta coefficient for nominal/interval data.}
 \usage{
-  eta(x, y, breaks = NULL, ...)
+  eta(x, y, breaks = NULL, na.rm = FALSE)
 }
 \arguments{
   \item{x}{Independent nominal variable (factor or
@@ -14,6 +14,9 @@
   \code{breaks} argument can be specified to classify the
   data. \code{breaks} is passed on to the function
   \code{\link{cut}}.}
+
+  \item{na.rm}{Logical. Indicating if \code{NA} values are
+  removed.}
 }
 \value{
   Eta coefficient
@@ -22,8 +25,11 @@
   Eta coefficient for nominal/interval data.
 }
 \examples{
-attach(eta2)     # using eta2 dataset
+attach(d.eta)     # using d.eta dataset
 eta(x1, y)
+
+# removing missing data
+eta(c(x1, 2), c(NA, y), na.rm=T)   # NA added to y to show NA behaviour
 
 # classify interval data x
 eta(x, y, breaks=c(1, 4, 7,10))
