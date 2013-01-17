@@ -539,33 +539,38 @@ cochranq.test <- function(mat)
 
 
 
-#### Eta-squared ####
+#### Eta ####
 
-#' Eta and Eta-squared for nominal/interval data.
-#' @param x     Independent nominal variable (factor or numeric).
-#' @param x     Independent nominal variable (factor or numeric).
+#' Eta coefficient for nominal/interval data.
+#' @param x Independent nominal variable (factor or numeric).
+#' @param y Dependent interval variable (numeric).
+#' @param breaks If \code{x} is interval data the \code{breaks} argument can be
+#'   specified to classify the data. \code{breaks} is passed on to the function 
+#'   \code{\link{cut}}.
 #' @return Eta coefficient
 #' @export
 #' @author Mark Heckmann
-#' @examples {
-#'  attach(eta2)
-#'  eta(x1, y)
+#' @examples 
+#' attach(eta2)     # using eta2 dataset
+#' eta(x1, y)
 #'  
-#'  # classify interval data x
-#'  eta(x, y, breaks=c(1, 4, 7,10))
-#'  # visualize classication
-#'  plot(x, y)
-#'  abline(v=c(1, 4, 7,10))
-#' }
+#' # classify interval data x
+#' eta(x, y, breaks=c(1, 4, 7,10))
+#' # visualize classication
+#' plot(x, y)
+#' abline(v=c(1, 4, 7,10))
+#'  
+#' # setting number of breaks for classification
+#' eta(x, y, breaks=7)   
 #'
 eta <- function(x, y, breaks=NULL, ...)
 {
   if (! (is.vector(x) & is.vector(y)) ) 
       stop("'x' and 'v' must be vectors")
-  if (!is.null(breaks))           # if x is interval data, breaks can be specified
-    x <- ?cut(x, breaks=breaks)
+  if (!is.null(breaks))                       # if x is interval data, breaks can be specified
+    x <- droplevels(cut(x, breaks=breaks))    # as order does not matter drop levels
   x <- split(y, x)  
-  .eta(x, squared=FALSE, ...)
+  .eta(x, ...)
 }
 
 
@@ -582,6 +587,7 @@ eta <- function(x, y, breaks=NULL, ...)
   sst <- sum((y - mtot) ^ 2)        # SSt
   sqrt(ssb/sst)
 }
+
 
 
 
