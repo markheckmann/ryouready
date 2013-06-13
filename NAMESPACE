@@ -1,5 +1,6 @@
 export(eta)
 export(foo)
+export(intervals)
 export(nom.lambda)
 export(nom.uncertainty)
 export(ord.gamma)

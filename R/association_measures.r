@@ -556,7 +556,7 @@ cochranq.test <- function(mat)
 #' eta(x1, y)
 #' 
 #' # removing missing data
-#' eta(c(x1, 2), c(NA, y), na.rm=T)   # NA added to y to show NA behaviour
+#' eta(c(x1, 2), c(NA, y), na.rm=TRUE)   # NA added to y to show NA behaviour
 #'    
 #' # classify interval data x
 #' eta(x, y, breaks=c(1, 4, 7,10))
