@@ -74,7 +74,7 @@ rowMeans2 <- function(x, w, min=0, na.rm=TRUE)
 #' 
 #' The \code{recode} function from the \code{car} package is an excellent 
 #' function for recoding data. When defining open intervals though, the recoding
-#' definitions will quickly become hard to read. The \code{interval} function 
+#' definitions will quickly become hard to read. The \code{intervals} function 
 #' allows to use standard mathematical interval notation, e.g. like 
 #' \code{[1,4)}, to define (open) intervals. It will convert the intervals 
 #' definition into a format required by the \code{recode} function from 
@@ -121,13 +121,13 @@ intervals <- function(rec, e=10^-8)
   
   # determine positions of valid interval defs (to really make sure that nothing else gets changed)
   # bracket [high, lo, number] Comma [high, lo, number] bracket 
-  i <- str_detect(rec.pcs, "(\\]|\\(|\\[)(lo|[0-9]*(\\.[0-9]*)?),(hi|[0-9]*(\\.[0-9]*)?)(\\]|\\)|\\[)")
+  i <- str_detect(rec.pcs, "^(\\]|\\(|\\[)(lo|[0-9]*(\\.[0-9]*)?),(hi|[0-9]*(\\.[0-9]*)?)(\\]|\\)|\\[)")
   
   s <- rec.pcs[i]
   # replace open brackets for lower interval
-  s <- str_replace(s, "(\\]|\\()([0-9]*(\\.[0-9]*)?|lo),", paste0("(\\2+", e, ")@"))
+  s <- str_replace(s, "^(\\]|\\()([0-9]*(\\.[0-9]*)?|lo),", paste0("(\\2+", e, ")@"))
   # replace closed brackets for lower interval
-  s <- str_replace(s, "(\\[)([0-9]*(\\.[0-9]*)?|lo),", "\\2@")
+  s <- str_replace(s, "^(\\[)([0-9]*(\\.[0-9]*)?|lo),", "\\2@")
   
   # replace open brackets for upper interval
   s <- str_replace(s, "@([0-9]*(\\.[0-9]*)?|hi)(\\[|\\))", paste0(":(\\1-", e, ")"))
