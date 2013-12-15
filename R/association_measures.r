@@ -528,7 +528,7 @@ cochranq.test <- function(mat)
   names(df) <- "df"
   names(Q) <- "Cochran's Q"
   
-  p.val <- pchisq(Q, df, lower = FALSE)
+  p.val <- pchisq(Q, df, lower.tail = FALSE)
 
   QVAL <- list(statistic = Q, parameter = df, p.value = p.val,
                method = "Cochran's Q Test for Dependent Samples",
