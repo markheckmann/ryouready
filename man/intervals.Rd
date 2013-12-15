@@ -31,14 +31,14 @@ package}
   The \code{recode} function from the \code{car} package is
   an excellent function for recoding data. When defining
   open intervals though, the recoding definitions will
-  quickly become hard to read. The \code{interval} function
-  allows to use standard mathematical interval notation,
-  e.g. like \code{[1,4)}, to define (open) intervals. It
-  will convert the intervals definition into a format
-  required by the \code{recode} function from \code{car}.
-  The standard intervals can simply be used additionally to
-  the standard recoding definitions as required by
-  \code{recode}.
+  quickly become hard to read. The \code{intervals}
+  function allows to use standard mathematical interval
+  notation, e.g. like \code{[1,4)}, to define (open)
+  intervals. It will convert the intervals definition into
+  a format required by the \code{recode} function from
+  \code{car}. The standard intervals can simply be used
+  additionally to the standard recoding definitions as
+  required by \code{recode}.
 }
 \examples{
 \dontrun{
