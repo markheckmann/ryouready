@@ -2,9 +2,10 @@
 \name{ryouready}
 \alias{ryouready}
 \alias{ryouready-package}
-\title{\pkg{ryouready}: an R package to accompany my R book}
+\title{\pkg{ryouready}: an R package to accompany the 'R you ready?' R book}
 \description{
-  \pkg{ryouready}: an R package to accompany my R book
+  \pkg{ryouready}: an R package to accompany the 'R you
+  ready?' R book
 }
 \author{
   Mark Heckmann.

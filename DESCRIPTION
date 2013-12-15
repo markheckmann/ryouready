@@ -8,12 +8,14 @@ Type: Package
 LazyLoad: yes
 Author: Mark Heckmann
 Description: Data, functions etc. from the 'R you ready?' book
-Version: 0.2
-Date: 2013-06-13
+Version: 0.3
+Date: 2013-12-15
 Depends:
-    stringr
+    stringr,
+    car
 Collate:
     'ryouready-package.r'
     'association_measures.r'
     'utils.r'
+    'collapse_response_set.R'
     'data-doc.R'

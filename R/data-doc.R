@@ -29,6 +29,19 @@ NULL
 NULL
 
 
+#### Daten für t-Test und Wilcoxon-Test ####
+
+#' Student self assessment data
+#'
+#' The participipoants were asked to assess in h
+#'
+#' @name d.superiority
+#' @docType data
+#' @keywords data
+#'
+NULL
+
+
 #### data for examples in eta coefficient ####
 
 # for demonstration of eta coefficient

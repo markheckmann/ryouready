@@ -1,0 +1,62 @@
+\name{collapse_responseset.data.frame}
+\alias{collapse_responseset}
+\alias{collapse_responseset.data.frame}
+\alias{collapse_responseset.default}
+\title{Collapse multiple response sets to single variable}
+\usage{
+  \method{collapse_responseset}{data.frame} (x,
+    vars = NULL, rec = NULL, ...)
+
+  \method{collapse_responseset}{default} (..., rec = NULL)
+
+  collapse_responseset(x, ...)
+}
+\arguments{
+  \item{x}{A dataframe.}
+
+  \item{...}{Several vector of the same length (for default
+  method).}
+
+  \item{vars}{The names or indexes of the dataframe columns
+  that contain the multi response set. By default all
+  variables from dataframe are used.}
+
+  \item{rec}{A vector of the same length as the number of
+  variables specifying the new values for each column.}
+}
+\value{
+  A vector with the with the new values.
+}
+\description{
+  This functions allows to collapse several multiple
+  response set varables into one variable. It can be
+  applied either to a \code{dataframe} or within the
+  \code{transform} function.
+}
+\examples{
+d <- data.frame(t1=c(1,0,NA,0,0),
+                 t2=c(0,1,0,NA,0),
+                 t3=c(0,0,1,0,0) )
+
+ # collapse all variables of a dataframe
+ collapse_responseset(d)
+
+ # collapse columns 1 to 3 (which is all in this case as well)
+ collapse_responseset(d, vars=1:3)
+ collapse_responseset(d, vars=c("t1", "t2", "t3"))
+
+ # use letters instead fo numbers for recoding
+ collapse_responseset(d, vars=1:3, rec=letters[1:3])
+
+ # use with several vectors
+ collapse_responseset(d$t1, d$t2, d$t3)
+
+ # use inside of transform
+ transform(d, new=collapse_responseset(t1, t2, t3))
+
+ transform(d, new=collapse_responseset(t1, t2, t3, rec=letters[1:3]))
+}
+\author{
+  Mark Heckmann
+}
+

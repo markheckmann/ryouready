@@ -4,7 +4,13 @@
 			            RYOUREADY RELEASE VERSIONS 
 		       	      ==========================
 
-Version 0.2 (opened June 13, 2013) --------------------------   
+Version 0.3 (opened 15, 2013) --------------------------   
+  
+  * collapse_responseset: convert a multiple response set with sereval
+variables into one variable
+
+
+Version 0.2 (December 15, 2013) --------------------------   
   
   * intervals: converts standard mathematical interval notation to a definition as required by the recode function from the car package
 
