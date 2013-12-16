@@ -1,0 +1,48 @@
+\name{recode2}
+\alias{recode2}
+\title{Wrapper for \code{recode} from \code{car} to allow to recode multiple
+columns at once}
+\usage{
+  recode2(x, vars = NULL, ...)
+}
+\arguments{
+  \item{x}{A dataframe.}
+
+  \item{vars}{A vector of variable names or numeric indexes
+  to select the columns to recode.}
+
+  \item{...}{Arguments that are passed on to \code{recode}
+  from \code{car} (see \code{?recode} for more info).
+
+  \tabular{ll}{ \code{recodes} \tab Character string of
+  recode specifications: see below. \cr
+  \code{as.factor.result} \tab Return a factor; default is
+  \code{TRUE} if the column is a factor, \code{FALSE}
+  otherwise. \cr \code{as.numeric.result} \tab If
+  \code{TRUE} (the default), and \code{as.factor.result} is
+  \code{FALSE}, then the result will be coerced to numeric
+  if all values in the result are numerals — i.e.,
+  represent numbers. \cr \code{levels} \tab An optional
+  argument specifying the order of the levels in the
+  returned factor; the default is to use the sort order of
+  the level names.\cr \code{...} \tab More arguments passed
+  to \code{recode}. \cr }}
+}
+\value{
+  A dataframe with recoded columns.
+}
+\description{
+  Wrapper for \code{recode} from \code{car} to allow to
+  recode multiple columns at once
+}
+\examples{
+a <- attitude
+rec <- "0:50=1; 51:70=2; 60:100=3; else=NA"
+recode2(a, recodes=rec)
+recode2(a, vars=1:2, recodes=rec)
+recode2(a, vars=c("rating", "complaints"), recodes=rec)
+}
+\author{
+  Mark Heckmann
+}
+
