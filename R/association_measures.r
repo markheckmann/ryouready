@@ -229,12 +229,13 @@ nom.lambda <- function(x)
 
   res <- list(L.CR, L.RC, L.S)
   names(res) <- c("lambda.cr", "lambda.rc", "lambda.symmetric")
-  class(res) <- "ord.lambda"
+  class(res) <- "nom.lambda"
   res
 }
 
 
 #' Print method for class nom.lambda
+#' 
 #' @param x Object to be printed.
 #' @param digits Number of decimal places to round to.
 #' @param ...  Not evaluated.
