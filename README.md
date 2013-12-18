@@ -6,11 +6,7 @@ To install the latest package version from github you can use the `devtools` pac
 (Windows users: Make sure you have [Rtools](http://cran.r-project.org/bin/windows/Rtools/) installed in order to run the commands below).
 
     library(devtools)
-    install_github("ryouready", "markheckmann") 
-
-You may also download the latest binaries from the [downloads](http://github.com/markheckmann/ryouready/downloads) page. 
-
-    Not yet available    
+    install_github("markheckmann/ryouready") 
 
 To load the `ryouready` package after installation type
 

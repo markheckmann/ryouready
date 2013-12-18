@@ -4,12 +4,14 @@
 			            RYOUREADY RELEASE VERSIONS 
 		       	      ==========================
 
+
 Version 0.3 (opened 15, 2013) --------------------------   
   * count_na: count the number of NAs per row or column of a dataframe or matrix
   * collapse_responseset: convert a multiple response set with sereval
 variables into one variable
-  * recode2: recode sereval variables in a dataframe at once supplying the column indexes
+  * recode2: recode several variables in a dataframe at once supplying the column indexes
 or names
+
 
 Version 0.2 (December 15, 2013) --------------------------   
   
