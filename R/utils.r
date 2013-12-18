@@ -68,6 +68,7 @@ rowMeans2 <- function(x, w, min=0, na.rm=TRUE)
   r
 }
 
+# TODO rowMeans2 für Nutzung innerhalb von transform
 
 #' Use standard mathematical interval notation in \code{recode} from \code{car} 
 #' package
@@ -184,6 +185,35 @@ recode2 <- function (x, vars=NULL, ...)
     x[, v] <- car::recode(x[ , v], ...)
   x 
 }
+
+
+
+#' Count the number of NAs in each row or in each column
+#' 
+#' @param x A dataframe or matrix.
+#' @param along Along which dimension to count the NAs in (1 = rows, 2=columns).
+#' @export
+#' @return A vector givning the number of NAs for each row or column.
+#' @examples
+#' 
+#' x <- d.ngo
+#' 
+#' # count NAs row-wise across all variables
+#' count_na(x)
+#' 
+#' # count NAs column-wise
+#' count_na(x, along=2)
+#' 
+count_na <- function(x, along=1) {
+  if (! along %in% 1:2)
+    stop("'along' must either be 1 for rows and 2 for column counts", call.=FALSE)
+  xna <- is.na(x)
+  if (along==1) 
+    rowSums(xna)    
+  else if (along == 2) 
+    colSums(xna)  
+}
+
 
 
 

@@ -1,0 +1,29 @@
+\name{count_na}
+\alias{count_na}
+\title{Count the number of NAs in each row or in each column}
+\usage{
+  count_na(x, along = 1)
+}
+\arguments{
+  \item{x}{A dataframe or matrix.}
+
+  \item{along}{Along which dimension to count the NAs in (1
+  = rows, 2=columns).}
+}
+\value{
+  A vector givning the number of NAs for each row or
+  column.
+}
+\description{
+  Count the number of NAs in each row or in each column
+}
+\examples{
+x <- d.ngo
+
+# count NAs row-wise across all variables
+count_na(x)
+
+# count NAs column-wise
+count_na(x, along=2)
+}
+
