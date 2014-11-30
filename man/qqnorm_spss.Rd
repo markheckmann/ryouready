@@ -43,6 +43,10 @@ and \code{ggplot}. The parameters that can be passed to the
 plotting functions are documented in \code{\link{plot.qqnorm.spss}} and
 \code{\link{ggplot.qqnorm.spss}}.
 }
+\section{TODO}{
+
+Check output against SPSS results.
+}
 \examples{
 set.seed(0)
 x <- sample(0:9, 100, rep=TRUE)
@@ -51,16 +55,16 @@ x <- sample(0:9, 100, rep=TRUE)
 
 # Standard QQ-plot
 qq <- qqnorm_spss(x, 1)
-plot(qq, 1)  
-ggplot(qq, 1)
+plot(qq)  
+ggplot(qq)
 
 qq <- qqnorm_spss(x, 1, standardize=TRUE)
-plot(qq, 1)  
-ggplot(qq, 1)
+plot(qq, l.col="red")  
+ggplot(qq, line=FALSE)
 
 # Detrended QQ-plot (plottype=2)
-plot(qq, 1, plottype=2)  
-ggplot(qq, 1, plottype=2)
+plot(qq, plottype=2)  
+ggplot(qq, plottype=2)
 
 ### R
 qqnorm(x, datax=TRUE)

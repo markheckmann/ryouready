@@ -61,6 +61,8 @@ qq_get_p <- function(x, method=1, ties.method = "average")
 #'    Selection of a Plotting Position for a Normal Q-Q Plot. R Script. 
 #'    \emph{Journal of Communication and Computer, 9}(3), 243–250.
 #' @export
+#' @section TODO:
+#' Check output against SPSS results. 
 #' @example examples/example-qq-plot.R
 #' 
 qqnorm_spss <- function(x, standardize=FALSE, method=1, 
