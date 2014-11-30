@@ -4,8 +4,10 @@
 			            RYOUREADY RELEASE VERSIONS 
 		       	      ==========================
 
+Version 0.4 (opened November 30, 2014) --------------------------   
+  * qqnorm_spss: SPSS like qqplots
 
-Version 0.3 (opened 15, 2013) --------------------------   
+Version 0.3 (November 30, 2014) --------------------------   
   * count_na: count the number of NAs per row or column of a dataframe or matrix
   * collapse_responseset: convert a multiple response set with sereval
 variables into one variable
