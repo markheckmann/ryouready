@@ -65,7 +65,7 @@ qq_get_p <- function(x, method=1, ties.method = "average")
 #' @export
 #' @section TODO:
 #' Check output against SPSS results. 
-#' @example examples/example-qq-plot.R
+#' @example inst/examples/example-qq-plot.R
 #' 
 qqnorm_spss <- function(x, standardize=FALSE, method=1, 
                         ties.method="average") 

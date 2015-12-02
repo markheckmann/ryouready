@@ -6,12 +6,11 @@
 #' The book's website where you can find the fulltext freely available 
 #' currently is \url{http://ryouready.markheckmann.de}.
 #'  
-#' @author    Mark Heckmann. 
+#' @author  Mark Heckmann. 
 #' @keywords package ryouready
-#' @keywords internal
 #' @name ryouready
-#' @docType package
+#' @import stats
+#' @import graphics
 #' @import stringr
 #' @import ggplot2
-#' 
 NULL
