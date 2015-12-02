@@ -117,8 +117,8 @@ rowMeans2 <- function(x, w, min=0, na.rm=TRUE)
 intervals <- function(rec, e=10^-8)
 {
   e <- deparse(e)
-  rec.pcs <- str_trim(str_split(rec, ";")[[1]])   # split recode def into pieces
-  rec.pcs <- str_replace_all(rec.pcs, " ", "") 
+  rec.pcs <- stringr::str_trim(str_split(rec, ";")[[1]])   # split recode def into pieces
+  rec.pcs <- stringr::str_replace_all(rec.pcs, " ", "") 
   
   # determine positions of valid interval defs (to really make sure that nothing else gets changed)
   # bracket [high, lo, number] Comma [high, lo, number] bracket 

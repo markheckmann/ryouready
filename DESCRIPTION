@@ -6,12 +6,14 @@ LazyData: yes
 Encoding: UTF-8
 Type: Package
 LazyLoad: yes
-Author: Mark Heckmann
-Description: Data, functions etc. from the 'R you ready?' book
+Authors@R: person("Mark", "Heckmann", 
+                  role = c("aut", "cre"),
+                  email="heckmann.mark@gmail.com")
+Description: Package contains some data and functions that 
+    are used in my forthcoming 'R you ready?' book.
 Version: 0.4
 Date: 2014-11-30
-Depends:
-    ggplot2
 Imports:
+    ggplot2,
     stringr,
     car

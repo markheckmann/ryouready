@@ -22,17 +22,19 @@ qq_get_p <- function(x, method=1, ties.method = "average")
   p
 }
 
+
 #' SPSS like QQ-plot
-#' 
+#'
+#' The QQ-plot in SPSS and R looks very different. The points
+#' points and the QQ-line are positioned differently. 
 #' \code{qqnorm_spss} implements a version of the QQ-plot that resembles
-#' the SPSS version. The QQ-plot in SPSS and R look very different. The points
-#' are and the QQ-line are positioned differently. This function 
-#' creates SPSS like QQ-plots. The function returns an object containing the 
+#' the SPSS version. The function returns an object containing the 
 #' processed data. The output can be plotted using the function \code{plot} 
 #' and \code{ggplot}. The parameters that can be passed to the 
 #' plotting functions are documented in \code{\link{plot.qqnorm.spss}} and
 #' \code{\link{ggplot.qqnorm.spss}}.
-#'   
+#' 
+#' @param x A numeric vector.
 #' @param standardize Whether the quantiles of the standardized values
 #'  should be displayed. The default is to display the quantiles using the
 #'  original data.
@@ -45,7 +47,7 @@ qq_get_p <- function(x, method=1, ties.method = "average")
 #'  \code{6 =} Gringorten and \code{7 =} Yu and Huang.
 #' @param  ties.method Method to assign ranks to ties. One of 
 #'  \code{"average", "first", "random", "max", "min"}. See \code{ties.method} 
-#'  argument from \code{rank}| for more details.
+#'  argument from \code{\link{rank}} for more details.
 #' 
 #' @return An list object of class \code{qqnorm.spss} with the 
 #'  following elements:
@@ -89,6 +91,7 @@ qqnorm_spss <- function(x, standardize=FALSE, method=1,
 
 #' Plot the output from \code{qqplot.spss}
 #' 
+#' @param x An object as returned by \code{\link{qqnorm_spss}}
 #' @param plottype The type of plot created. 
 #'  \code{1 =} Standard QQ-plot, \code{2 =} Detrended QQ-plot.
 #' @param line Whether to plot a QQ-line (defaul is \code{TRUE})
@@ -97,9 +100,10 @@ qqnorm_spss <- function(x, standardize=FALSE, method=1,
 #' @export
 #' @keywords internal
 #' 
-plot.qqnorm.spss <- function(qq, plottype=1, line=TRUE,
+plot.qqnorm.spss <- function(x, plottype=1, line=TRUE,
                              l.col="black", ...) 
 {
+  qq <- x
   x <- qq$x
   y <- qq$y
   main <- paste("Normal Q-Q plot of", qq$xname) 
@@ -128,6 +132,7 @@ plot.qqnorm.spss <- function(qq, plottype=1, line=TRUE,
 
 #' Plot the output from \code{qqplot.spss} using \code{ggplot2}
 #' 
+#' @param x An object as returned by \code{\link{qqnorm_spss}}
 #' @param plottype The type of plot created. 
 #'  \code{1 =} Standard QQ-plot, \code{2 =} Detrended QQ-plot.
 #' @param line Whether to plot a QQ-line (defaul is \code{TRUE})
@@ -137,9 +142,10 @@ plot.qqnorm.spss <- function(qq, plottype=1, line=TRUE,
 #' @export
 #' @keywords internal
 #' 
-ggplot.qqnorm.spss <- function(qq, plottype=1, line=TRUE,
-                               l.col="black", ...) 
+ggplot.qqnorm.spss <- function(x, plottype=1, line=TRUE,
+                      l.col="black", ...) 
 {
+  qq <- x
   x <- qq$x
   y <- qq$y
   main <- paste("Normal Q-Q plot of", qq$xname) 
@@ -156,14 +162,15 @@ ggplot.qqnorm.spss <- function(qq, plottype=1, line=TRUE,
     y <- x - y
   }
   d <- data.frame(x, y)
-  g <- ggplot(data=d, aes(x,y)) + geom_point() + 
-    xlab(xlab) + ylab(ylab) + ggtitle(main)
+  g <- ggplot2::ggplot(data=d, aes(x,y)) + 
+       ggplot2::geom_point() + 
+       ggplot2::xlab(xlab) + ggplot2::ylab(ylab) + ggplot2::ggtitle(main)
   
   if (line) {
     if (plottype == 2)          # detrended plot
-      gline <- geom_abline(intercept = 0, slope=0, colour=l.col)
+      gline <- ggplot2::geom_abline(intercept = 0, slope=0, colour=l.col)
     else                        # standard plot
-      gline <- geom_abline(intercept=0, slope=1, colour=l.col)   # slope of 1
+      gline <- ggplot2::geom_abline(intercept=0, slope=1, colour=l.col)   # slope of 1
     g <- g + gline
   }  
   g

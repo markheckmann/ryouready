@@ -4,7 +4,8 @@
 #         or a vector whose length matches the number of variables to recode
 # x       the vector after collapsing the variables
 #
-update_rec <- function(rec, x) {
+update_rec <- function(rec, x) 
+{
   if (is.null(rec))
     return(rec)
   if (length(rec) > 1) {             # is rec a vector with several entries?
@@ -17,12 +18,14 @@ update_rec <- function(rec, x) {
   rec
 }
 
-# collapse variables into one and assign values accoridng to recodings
-# x       a dataframe containing the variables of the multiple response set
+
+# collapse variables into one and assign values according to recordings
+# x       dataframe containing the variables of the multiple response set
 # rec     the recoding. May be a string as used in recode in car package
 #         or a vector whose length matches the number of variables to recode
 #
-collapse_vars <- function(x, rec=NULL) {
+collapse_vars <- function(x, rec=NULL) 
+{
   x[is.na(x)] <- 0
   if (sum(x) != 1)                  # if 0 or more than 1 entry
     r <- NA
@@ -30,7 +33,7 @@ collapse_vars <- function(x, rec=NULL) {
     r <- sum(x * 1:length(x))       # multiply each column by different number
   }
   if (!is.null(rec)) {
-    r <- recode(r, update_rec(rec, x))
+    r <- car::recode(r, update_rec(rec, x))
   } 
   r
 }
@@ -40,17 +43,20 @@ collapse_vars <- function(x, rec=NULL) {
 #' @method collapse_responseset data.frame
 #' @rdname collapse_responseset
 #'  
-collapse_responseset.data.frame <- function(x, vars=NULL, rec=NULL, ...) {
+collapse_responseset.data.frame <- function(x, vars=NULL, rec=NULL, ...) 
+{
   if (is.null(vars))
     vars <- 1:ncol(x)
   apply(x[vars], 1, collapse_vars, rec=rec)  
 }
 
+
 #' @export
 #' @method collapse_responseset default
 #' @rdname collapse_responseset
 #' 
-collapse_responseset.default <- function(..., rec=NULL) {
+collapse_responseset.default <- function(..., rec=NULL)
+{
   d <- as.data.frame(list(...))
   collapse_responseset(d, rec=rec)
 }
@@ -97,7 +103,8 @@ collapse_responseset.default <- function(..., rec=NULL) {
 #  # use inside of transform with letters as recodes
 #'  transform(d, new=collapse_responseset(t1, t2, t3, rec=letters[1:3]))
 #'  
-collapse_responseset <- function(x, ...) {
+collapse_responseset <- function(x, ...) 
+{
   UseMethod("collapse_responseset")
 }
 

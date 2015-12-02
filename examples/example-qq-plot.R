@@ -1,3 +1,5 @@
+require(ggplot2)
+
 set.seed(0)
 x <- sample(0:9, 100, rep=TRUE)
 
