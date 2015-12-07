@@ -1,4 +1,4 @@
-# ryouready
+# ryouready [![](http://www.r-pkg.org/badges/version/ryouready)](http://www.r-pkg.org/pkg/ryouready)
 
 **ryouready** is an R package to accompany my forthcoming R book `"R" you ready?`
                                                   
